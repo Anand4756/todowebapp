@@ -1,0 +1,95 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #DFECE1;
+}
+.navbar{
+    background-color: #2DF03A;
+    font-family: cursive;
+    display: flex;
+    
+    justify-content: space-between;
+    
+}
+.navbar h1{
+    padding: 14px;
+    font-weight: 700;
+}
+.navbar button{
+    float: right;
+    font-size: 20px;
+    margin: 20px;
+    height: 30px;
+    border: none;
+    filter: drop-shadow(
+        1px 2px 8px hsl(113, 100%, 22%)
+      );
+
+}
+  
+    
+  
+.navbar button:hover{
+    cursor: pointer;
+
+}
+.inputarea{
+    display: grid;
+    grid-template-columns: 1.8fr;
+    width: 50%;
+    margin: auto;
+    filter: drop-shadow(
+        12px 12px 17px hsl(113, 53%, 33%)
+      );
+    margin-top: 39px;
+    
+}
+.title{
+    outline: none;
+    height: 30px;
+    font-size: 26px;
+    text-align: center;
+   border: none;
+   color: #06b912;
+}
+.textarea{
+    outline: none;
+   resize: none;
+    margin-bottom: 50px;
+    text-align: center;
+    border: none;
+    font-size: 23px;
+    color: #07610d;
+    
+}
+.okbtn{
+    width: max-content;
+    padding: 10px 10px;
+    border-radius: 20px;
+    border: none;
+    background-color: #5ae063;
+    font-size: 30px;
+    position:absolute;
+    top: 41%;
+    left: 90%;
+}
+.okbtn:hover{
+    cursor: pointer;
+}
+
+.card{
+    
+    float: left;
+    background-color: #c1d3c3;
+    width: fit-content;
+    padding: 30px;
+    border-radius: 30px;
+    margin: 20px 20px 20px;
+    filter: drop-shadow(
+        1px 2px 8px hsl(113, 100%, 22%)
+      );
+
+
+}
