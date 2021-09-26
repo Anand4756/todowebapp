@@ -8,37 +8,27 @@ import {
 
 
 import Nav from "./components/Nav";
-import Input from "./components/Input";
-import Card from "./components/Card";
+
 import Register from "./components/Register";
+import Todo from "./pages/Todo";
 
 function App() {
 
-  const [todos, settodos] = useState([])
-
-  function addtodo(newNote) {
-    
-    settodos(prevtodos => {
-      return [...prevtodos, newNote];
-
-    })
-  }
+  
   return (
     
 
     <div>
+         <Nav />
       <Router>
       <Switch>
-      <Route path="/" exact component={Card}></Route>     
-      <Route path="/register" component={Register}></Route>  
+      <Route path="/" exact component={Todo}></Route>     
+      <Route path="/register" component={Register}></Route> 
       </Switch>
 
     </Router>
-   <Nav />
-   <Input onAdd={addtodo}/>
-   {todos.map(todoitems=>{
-     return <Card title={todoitems.title} content={todoitems.content} />
-   })}
+
+
 
     </div>
   );
