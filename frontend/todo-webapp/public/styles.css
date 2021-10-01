@@ -90,6 +90,8 @@ body{
     filter: drop-shadow(
         1px 2px 8px hsl(113, 100%, 22%)
       );
+}
 
-
+.registerbtn{
+    font-size: 20px;
 }

@@ -19,8 +19,9 @@ function App() {
     
 
     <div>
-         <Nav />
+         
       <Router>
+     
       <Switch>
       <Route path="/" exact component={Todo}></Route>     
       <Route path="/register" component={Register}></Route> 
