@@ -5,9 +5,13 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const app = express();
 app.use(cors());
+app.use(express.json());
 
-app.get('/register',(req, res)=>{
-res.json('register route');
+app.post('/register',(req, res)=>{
+
+  const name = req.body;
+  res.json(name);
+  console.log(name);
 })
 
 app.post('/register',(req, res)=> {

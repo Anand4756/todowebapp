@@ -91,7 +91,36 @@ body{
         1px 2px 8px hsl(113, 100%, 22%)
       );
 }
+.regform{
+    width: fit-content;
+    margin: 10px auto;
+    
 
+
+}
+.regform input{
+    margin: 20px 0;
+    height: 30px;
+    width: 500px;
+font-size: 20px;
+}
+
+
+.regname{
+    width: fit-content;
+    margin: 30px auto;
+}
 .registerbtn{
+    
+    transform: translateX(210px);
     font-size: 20px;
+    border: none;
+    
+    filter: drop-shadow(
+        1px 2px 8px hsl(113, 100%, 22%)
+      );
+    padding: 10px;
+}
+.registerbtn:hover{
+    cursor: pointer;
 }

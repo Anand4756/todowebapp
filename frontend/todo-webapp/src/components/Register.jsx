@@ -5,17 +5,33 @@ const Register = () => {
     const [password, setpassword] = useState("");
     const [name, setname] = useState("");
 
+    const Submit = (e) =>{
+        e.preventDefault();
+        fetch('http://localhost:5000/register',{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+                
+              },
+              body: JSON.stringify({
+                  email,
+                  password,
+                  name
+              })
+        });
+    
+    };
     return (
        
         <div className="register-form">
-            Hello {name}
+           <h2 className="regname"> Hello {name}</h2>
         
-            <form>
-            <input type="name" onChange={(e) => setname(e.target.value)} />
+            <form onSubmit={Submit} className="regform">
+            <input type="name" required onChange={(e) => setname(e.target.value)} />
             <br />
-            <input type="email" onChange={(e) => setemail(e.target.value)}/>
+            <input type="email" required onChange={(e) => setemail(e.target.value)}/>
             <br />
-            <input type="password" onChange={(e) => setpassword(e.target.value)} />
+            <input type="password" required onChange={(e) => setpassword(e.target.value)} />
             <br />
             
             <button className="registerbtn" type="submit">Register</button>
