@@ -14,10 +14,6 @@ app.post('/register',(req, res)=>{
   console.log(name);
 })
 
-app.post('/register',(req, res)=> {
-
-  
-})
 
 
 app.listen(5000, function() {
