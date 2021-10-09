@@ -12,19 +12,30 @@ mongoose.connect("mongodb://localhost:27017/todoDB",{useNewUrlParser: true , use
 
 const userSchema = new mongoose.Schema({
   name: String,
-  email: String,
+  email: {
+    type: String,
+    unique: true
+  },
   password: String,
 
 });
 const User = mongoose.model('User', userSchema);
 app.post('/register', (req, res)=>{
   const { name, email, password } = req.body;
+
   const users = new User({
       name,
       email,
       password
   })
- users.save();
+ users.save(function(err){
+   if(err){
+     console.log(err);
+   }else{
+     console.log("success");
+   }
+ });
+
   res.json(name);
   console.log(name);
 })
