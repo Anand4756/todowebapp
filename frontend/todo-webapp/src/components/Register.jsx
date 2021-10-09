@@ -1,14 +1,16 @@
 import React, { useState } from 'react'
+import { Link, useHistory } from "react-router-dom";
 
 const Register = () => {
     const [email, setemail] = useState("");
     const [password, setpassword] = useState("");
     const [name, setname] = useState("");
-
+    
     const Submit = (e) =>{
         e.preventDefault();
         fetch('http://localhost:5000/register',{
             method: 'POST',
+            
             headers: {
                 'Content-Type': 'application/json'
                 
@@ -18,9 +20,14 @@ const Register = () => {
                   password,
                   name
               })
-        });
+              
+        }).then(() => {
+            history.push('/');
+        })
     
     };
+    
+    const history = useHistory();
     return (
        
         <div className="register-form">
@@ -36,6 +43,7 @@ const Register = () => {
             
             <button className="registerbtn" type="submit">Register</button>
             </form>
+            <Link to="/login"><button className="registertbn" type="submit">Login</button></Link>
         </div>
     )
 }

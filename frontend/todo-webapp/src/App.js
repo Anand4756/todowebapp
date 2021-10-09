@@ -5,6 +5,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import Login from "./components/Login";
 
 
 import Nav from "./components/Nav";
@@ -24,7 +25,8 @@ function App() {
      
       <Switch>
       <Route path="/" exact component={Todo}></Route>     
-      <Route path="/register" component={Register}></Route> 
+      <Route path="/register" component={Register}></Route>  
+      <Route path="/login" component={Login}></Route>
       </Switch>
     </Router>
     </div>
