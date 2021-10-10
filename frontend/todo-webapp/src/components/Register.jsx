@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Link, useHistory } from "react-router-dom";
-
+import { CredentialContext } from '../App';
 const Register = () => {
     const [email, setemail] = useState("");
     const [password, setpassword] = useState("");
     const [name, setname] = useState("");
-    
+    const [,setCredentials] = useContext(CredentialContext);
     const Submit = (e) =>{
         e.preventDefault();
         fetch('http://localhost:5000/register',{
@@ -22,6 +22,11 @@ const Register = () => {
               })
               
         }).then(() => {
+            setCredentials({
+            name,
+            email,
+            password
+            })
             history.push('/');
         })
     
@@ -43,7 +48,7 @@ const Register = () => {
             
             <button className="registerbtn" type="submit">Register</button>
             </form>
-            <Link to="/login"><button className="registertbn" type="submit">Login</button></Link>
+            <Link to="/login"><button className="loginbtn" type="submit">Login</button></Link>
         </div>
     )
 }

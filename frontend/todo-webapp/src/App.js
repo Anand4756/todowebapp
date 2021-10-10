@@ -7,20 +7,19 @@ import {
 } from "react-router-dom";
 import Login from "./components/Login";
 
-
-import Nav from "./components/Nav";
-
 import Register from "./components/Register";
 import Todo from "./pages/Todo";
 
+export const CredentialContext = React.createContext(null);
 function App() {
 
-  
+  const credentialsState = useState(null);
+
   return (
     
 
     <div>
-         
+         <CredentialContext.Provider value={credentialsState}>
       <Router>
      
       <Switch>
@@ -29,6 +28,7 @@ function App() {
       <Route path="/login" component={Login}></Route>
       </Switch>
     </Router>
+    </CredentialContext.Provider>
     </div>
   );
 }

@@ -40,6 +40,21 @@ app.post('/register', (req, res)=>{
   console.log(name);
 })
 
+app.post('/login',(req, res) => {
+  const {loginemail, loginpassword} = req.body;
+User.findOne({email: loginemail}, function(err, found) {
+  if(err){
+    res.json(err)
+  }else{
+    if(found){
+      if(found.password===loginpassword){
+        console.log("success login");
+        res.json("success")
+      }
+    }
+  }
+})
+})
 
 
 app.listen(5000, function() {
