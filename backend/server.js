@@ -41,19 +41,27 @@ app.post('/register', (req, res)=>{
 })
 
 app.post('/login',(req, res) => {
-  const {loginemail, loginpassword} = req.body;
-User.findOne({email: loginemail}, function(err, found) {
+  const {email, password} = req.body;
+
+ User.findOne({email: email}, function(err, found){
   if(err){
-    res.json(err)
+      console.log(err);
   }else{
-    if(found){
-      if(found.password===loginpassword){
-        console.log("success login");
-        res.json("success")
+  if(found){
+      if(found.password==password && found.email==email){
+          res.json("login successful");
+      }else{
+          res.json('error');
+          console.log(found.password);
       }
-    }
+  }else{
+      res.json("no account");
   }
-})
+  }
+  
+  
+  });
+
 })
 
 

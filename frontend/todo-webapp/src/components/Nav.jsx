@@ -8,7 +8,7 @@ const Nav = () => {
         <div className="navbar">
             <h1>TODO</h1>
             {!nameoflogged && <Link to="/register"><button>LOGIN/REGISTER</button></Link>}
-            {nameoflogged && nameoflogged.name}
+            {nameoflogged && nameoflogged.email}
         </div>
     )
 }

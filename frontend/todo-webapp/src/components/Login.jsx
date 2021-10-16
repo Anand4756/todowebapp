@@ -1,11 +1,11 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import { Link, useHistory } from "react-router-dom";
-
+import { CredentialContext } from '../App';
 
 const Login = () => {
-    const [loginemail, setloginemail] = useState("");
-    const [loginpassword, setloginpassword] = useState("");
-
+    const [email, setemail] = useState("");
+    const [password, setpassword] = useState("");
+    const [,setCredentials] = useContext(CredentialContext);
     const Submit = (e) =>{
     e.preventDefault();
     fetch('http://localhost:5000/login',{
@@ -16,10 +16,15 @@ const Login = () => {
                 
               },
               body: JSON.stringify({
-                  loginemail,
-                  loginpassword,
+                  
+                  email,
+                  password,
               })
               }).then(() => {
+                  setCredentials({
+                      email,
+                      password
+                  })
                 history.push('/');
             })
          
@@ -29,8 +34,8 @@ const Login = () => {
     return (
         <div>
             <form onSubmit={Submit}>
-            <input type="email" onChange={(e)=> setloginemail(e.target.value)}></input>
-            <input type="password" onChange={(e) => setloginpassword(e.target.value)}></input>
+            <input type="email" onChange={(e)=> setemail(e.target.value)}></input>
+            <input type="password" onChange={(e) => setpassword(e.target.value)}></input>
             <button type="submit">LOGIN</button>
             </form>
         </div>
