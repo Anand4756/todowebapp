@@ -24,8 +24,21 @@ const Input = (props) => {
 
        function submit(event){
             props.onAdd(todo);
-            event.preventDefault();
 
+            event.preventDefault();
+            fetch('http://localhost:5000/todo',{
+            method: 'POST',
+            
+            headers: {
+                'Content-Type': 'application/json'
+                
+              },
+              body: JSON.stringify({
+                  title,
+                  content
+              })
+              
+        })
        }
         
 
