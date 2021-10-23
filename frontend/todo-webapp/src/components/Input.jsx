@@ -34,8 +34,7 @@ const Input = (props) => {
                 
               },
               body: JSON.stringify({
-                  title,
-                  content
+                  ...todo
               })
               
         })

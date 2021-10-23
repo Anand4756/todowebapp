@@ -20,6 +20,13 @@ const userSchema = new mongoose.Schema({
 
 });
 const User = mongoose.model('User', userSchema);
+
+const todoSchema = new mongoose.Schema({
+  title: String,
+  content: String
+});
+const Todo = mongoose.model('Todo', todoSchema);
+
 app.post('/register', (req, res)=>{
   const { name, email, password } = req.body;
 
@@ -61,6 +68,19 @@ app.post('/login',(req, res) => {
   
   
   });
+
+})
+app.post("/todo", (req, res) => {
+  const {title, content} = req.body;
+const todo = new Todo({
+  title,
+  content
+})
+todo.save(function(err){
+  if(err)
+  res.json(err)
+  console.log("successfully saved");
+})
 
 })
 
